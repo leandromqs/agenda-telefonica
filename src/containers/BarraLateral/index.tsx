@@ -1,7 +1,18 @@
+import CardFiltro from '../../components/CardFiltro'
+import BotaoNovoContato from '../../components/BotaoNovoContato'
+import * as styles from './styles'
+
 const BarraLateral = () => {
   return (
     <>
-      <h1> Barra Lateral</h1>
+      <styles.DivLateral>
+        <CardFiltro />
+        <CardFiltro />
+        <CardFiltro />
+        <CardFiltro />
+        <CardFiltro />
+        <BotaoNovoContato />
+      </styles.DivLateral>
     </>
   )
 }
