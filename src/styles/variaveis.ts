@@ -6,5 +6,6 @@ export default {
   vermelho: '#FF2F2F',
   vermelho2: '#FFC8C8',
   amarelo: '#FFC132',
-  branco: '#D9D9D9'
+  branco: '#D9D9D9',
+  stroke: '#424242'
 }
