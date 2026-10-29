@@ -1,12 +1,32 @@
-import { Blocks } from 'lucide-react'
+import { Blocks, Star, Heart, Handshake, Briefcase } from 'lucide-react'
 import * as styles from './styles'
 
-const CardFiltro = () => {
+type Props = {
+  legenda: string
+  icon: number
+}
+
+const CardFiltro = ({ legenda, icon }: Props) => {
+  const selecionarIcon = (icon: number) => {
+    switch (icon) {
+      case 1:
+        return <Blocks />
+      case 2:
+        return <Star />
+      case 3:
+        return <Heart />
+      case 4:
+        return <Handshake />
+      default:
+        return <Briefcase />
+    }
+  }
+
   return (
     <>
       <styles.Card>
-        <Blocks />
-        <span>Todos</span>
+        {selecionarIcon(icon)}
+        <span>{legenda}</span>
       </styles.Card>
     </>
   )
