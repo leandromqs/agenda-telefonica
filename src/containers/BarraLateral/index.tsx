@@ -7,11 +7,11 @@ const BarraLateral = () => {
   return (
     <>
       <styles.DivLateral>
-        <CardFiltro legenda={enums.Prioridade.TODOS} icon={1} />
-        <CardFiltro legenda={enums.Prioridade.FAVORITOS} icon={2} />
-        <CardFiltro legenda={enums.Prioridade.FAMÍLIA} icon={3} />
-        <CardFiltro legenda={enums.Prioridade.AMIGOS} icon={4} />
-        <CardFiltro legenda={enums.Prioridade.TRABALHO} icon={5} />
+        <CardFiltro legenda={enums.Propriedade.TODOS} icon={1} />
+        <CardFiltro legenda={enums.Propriedade.FAVORITOS} icon={2} />
+        <CardFiltro legenda={enums.Propriedade.FAMÍLIA} icon={3} />
+        <CardFiltro legenda={enums.Propriedade.AMIGOS} icon={4} />
+        <CardFiltro legenda={enums.Propriedade.TRABALHO} icon={5} />
         <BotaoNovoContato />
       </styles.DivLateral>
     </>

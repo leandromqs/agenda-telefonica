@@ -4,6 +4,8 @@ import variaveis from '../../styles/variaveis'
 export const DivListaContatos = styled.div`
   background-color: ${variaveis.bg};
   padding: 40px;
+  max-height: 100vh;
+  overflow-y: scroll;
 `
 
 export const Input = styled.input`

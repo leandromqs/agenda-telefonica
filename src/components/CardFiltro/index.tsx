@@ -1,5 +1,9 @@
+import { useDispatch } from 'react-redux'
+
+import { alterarFiltro } from '../../store/reducers/filtros'
 import { Blocks, Star, Heart, Handshake, Briefcase } from 'lucide-react'
 import * as styles from './styles'
+import * as enums from '../../utils/enums/Contato'
 
 type Props = {
   legenda: string
@@ -22,9 +26,29 @@ const CardFiltro = ({ legenda, icon }: Props) => {
     }
   }
 
+  const dispatch = useDispatch()
+
+  const filtrar = (evento: any) => {
+    const enumSelect = () => {
+      switch (evento) {
+        case 'Todos':
+          return enums.Propriedade.TODOS
+        case 'Favoritos':
+          return enums.Propriedade.FAVORITOS
+        case 'Família':
+          return enums.Propriedade.FAMÍLIA
+        case 'Amigos':
+          return enums.Propriedade.AMIGOS
+        default:
+          return enums.Propriedade.TRABALHO
+      }
+    }
+    dispatch(alterarFiltro(enumSelect()))
+  }
+
   return (
     <>
-      <styles.Card>
+      <styles.Card ativo onClick={() => filtrar(legenda)}>
         {selecionarIcon(icon)}
         <span>{legenda}</span>
       </styles.Card>

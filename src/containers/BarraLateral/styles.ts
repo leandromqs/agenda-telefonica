@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
-export const DivLateral = styled.div`
+export const DivLateral = styled.aside`
   background-color: ${variaveis.bgLateral};
-  min-height: 100vh;
   padding: 24px;
-  position: relative;
+  height: 100vh;
 `

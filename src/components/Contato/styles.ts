@@ -7,6 +7,7 @@ export const CardContato = styled.div`
   border: 2px solid ${variaveis.stroke};
   border-radius: 16px;
   padding: 16px;
+  margin-bottom: 16px;
 `
 export const HeadContato = styled.div`
   display: flex;
@@ -46,4 +47,24 @@ export const BotaoEditar = styled(Botao)`
 export const BotaoCancelar = styled(Botao)`
   background-color: ${variaveis.vermelho2};
   color: ${variaveis.vermelho};
+`
+export const BotaoSalvar = styled(Botao)`
+  margin-right: 16px;
+  background-color: ${variaveis.laranja};
+  color: ${variaveis.laranja2};
+`
+
+export const InputContato = styled.input`
+  display: block;
+  padding: 8px;
+  background-color: transparent;
+  margin-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid ${variaveis.stroke};
+  color: ${variaveis.branco};
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${variaveis.branco};
+  }
 `
