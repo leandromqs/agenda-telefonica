@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux'
 
-import { Salad, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import * as styles from './styles'
 import * as enums from '../../utils/enums/Contato'
-import { remover } from '../../store/reducers/contato'
+import { editar, remover } from '../../store/reducers/contato'
 import { useState } from 'react'
 
 type ContatoProsp = {
@@ -51,8 +51,8 @@ const Contato = ({ nome, tipo, numero, email, id }: ContatoProsp) => {
           </>
         ) : (
           <>
-            <p>{numero}</p>
-            <p>{email}</p>
+            <h4>{numero}</h4>
+            <h4>{email}</h4>
           </>
         )}
       </styles.CamposContato>
@@ -68,7 +68,22 @@ const Contato = ({ nome, tipo, numero, email, id }: ContatoProsp) => {
           </>
         ) : (
           <>
-            <styles.BotaoSalvar>Salvar</styles.BotaoSalvar>
+            <styles.BotaoSalvar
+              onClick={() =>
+                dispatch(
+                  editar({
+                    nome,
+                    tipo,
+                    numero: editandoNumero,
+                    email: editandoEmail,
+                    id
+                  }),
+                  setEstaEditando(false)
+                )
+              }
+            >
+              Salvar
+            </styles.BotaoSalvar>
             <styles.BotaoCancelar onClick={cancelarOperacao}>
               Cancelar
             </styles.BotaoCancelar>
