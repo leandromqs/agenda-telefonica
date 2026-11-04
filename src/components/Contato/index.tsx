@@ -30,7 +30,7 @@ const Contato = ({ nome, tipo, favorito, numero, email, id }: ContatoProsp) => {
 
   const setFavorito = () => {
     setIsFavorito(!isFavorito)
-    dispatch(favoritar({ nome, tipo, favorito, numero, email, id }))
+    dispatch(favoritar({ nome, tipo, favorito: !favorito, numero, email, id }))
   }
 
   const setColor = () => {
