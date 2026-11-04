@@ -4,3 +4,7 @@ export enum Propriedade {
   AMIGOS = 'Amigos',
   TRABALHO = 'Trabalho'
 }
+
+export enum Favoritos {
+  FAVORITO = 'Favorito'
+}

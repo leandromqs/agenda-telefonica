@@ -11,6 +11,7 @@ const initialState: contatoState = {
     {
       nome: 'Leandro',
       tipo: enums.Propriedade.AMIGOS,
+      favorito: false,
       numero: '88888888',
       email: 'adasdas@gmail.com',
       id: 1
@@ -18,6 +19,7 @@ const initialState: contatoState = {
     {
       nome: 'Kelvin',
       tipo: enums.Propriedade.FAMÍLIA,
+      favorito: false,
       numero: '88888888',
       email: 'adasdas@gmail.com',
       id: 2
@@ -25,6 +27,7 @@ const initialState: contatoState = {
     {
       nome: 'Tutu',
       tipo: enums.Propriedade.AMIGOS,
+      favorito: false,
       numero: '88888888',
       email: 'adasdas@gmail.com',
       id: 3
@@ -46,9 +49,17 @@ const contatoSlice = createSlice({
       if (indexContato >= 0) {
         state.itens[indexContato] = action.payload
       }
+    },
+    favoritar: (state, action: PayloadAction<Contato>) => {
+      const indexContato = state.itens.findIndex(
+        (item) => item.id === action.payload.id
+      )
+      if (indexContato >= 0) {
+        state.itens[indexContato] = action.payload
+      }
     }
   }
 })
 
-export const { remover, editar } = contatoSlice.actions
+export const { remover, editar, favoritar } = contatoSlice.actions
 export default contatoSlice.reducer

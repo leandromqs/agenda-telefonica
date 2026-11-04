@@ -11,6 +11,18 @@ const ListaContatos = () => {
 
   const dispatch = useDispatch()
 
+  const filtrarTarefas = () => {
+    let tarefasFiltradas = itens
+    if (busca) {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (item) => item.nome.toLowerCase().search(busca.toLowerCase()) >= 0
+      )
+    } else {
+      return itens
+    }
+    return tarefasFiltradas
+  }
+
   return (
     <>
       <styles.DivListaContatos>
@@ -22,11 +34,12 @@ const ListaContatos = () => {
         />
         {busca}
         <ul>
-          {itens.map((item) => (
+          {filtrarTarefas().map((item) => (
             <li key={item.id}>
               <Contato
                 nome={item.nome}
                 tipo={item.tipo}
+                favorito={item.favorito}
                 numero={item.numero}
                 email={item.email}
                 id={item.id}

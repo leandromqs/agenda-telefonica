@@ -34,7 +34,7 @@ const CardFiltro = ({ legenda, icon }: Props) => {
         case 'Todos':
           return enums.Propriedade.TODOS
         case 'Favoritos':
-          return enums.Propriedade.FAVORITOS
+          return enums.Favoritos.FAVORITO
         case 'Família':
           return enums.Propriedade.FAMÍLIA
         case 'Amigos':
