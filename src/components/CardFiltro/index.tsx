@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { alterarFiltro } from '../../store/reducers/filtros'
@@ -28,11 +27,10 @@ const CardFiltro = ({ legenda, icon }: Props) => {
     }
   }
   const { filtros } = useSelector((state: RootState) => state)
-  const [isAtivo, setIsAtivo] = useState(false)
 
   const dispatch = useDispatch()
 
-  const filtrar = (legenda: any) => {
+  const filtrar = (legenda: enums.Propriedade) => {
     dispatch(alterarFiltro(legenda))
   }
 

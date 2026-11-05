@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Contato from '../../components/Contato'
 import * as styles from './styles'
+import * as enums from '../../utils/enums/Contato'
 import { alterarBusca } from '../../store/reducers/filtros'
 import type { RootState } from '../../store'
 
@@ -19,9 +20,27 @@ const ListaContatos = () => {
       tarefasFiltradas = tarefasFiltradas.filter(
         (item) => item.nome.toLowerCase().search(busca.toLowerCase()) >= 0
       )
+    } else if (propriedade) {
+      switch (propriedade) {
+        case enums.Propriedade.FAVORITO:
+          return tarefasFiltradas.filter((item) => item.favorito === true)
+        case enums.Propriedade.FAMÍLIA:
+          return tarefasFiltradas.filter(
+            (item) => item.tipo === enums.Propriedade.FAMÍLIA
+          )
+        case enums.Propriedade.AMIGOS:
+          return tarefasFiltradas.filter(
+            (item) => item.tipo === enums.Propriedade.AMIGOS
+          )
+        case enums.Propriedade.TRABALHO:
+          return tarefasFiltradas.filter(
+            (item) => item.tipo === enums.Propriedade.TRABALHO
+          )
+      }
     } else {
       return itens
     }
+
     return tarefasFiltradas
   }
 
@@ -34,7 +53,6 @@ const ListaContatos = () => {
           value={busca}
           onChange={(evento) => dispatch(alterarBusca(evento.target.value))}
         />
-        {propriedade}
         <ul>
           {filtrarTarefas().map((item) => (
             <li key={item.id}>

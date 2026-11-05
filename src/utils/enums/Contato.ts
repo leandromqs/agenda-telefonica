@@ -1,6 +1,6 @@
 export enum Propriedade {
   TODOS = 'Todos',
-  FAVORITO = 'Favorito',
+  FAVORITO = 'Favoritos',
   FAMÍLIA = 'Família',
   AMIGOS = 'Amigos',
   TRABALHO = 'Trabalho'
