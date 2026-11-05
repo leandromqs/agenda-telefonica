@@ -5,6 +5,7 @@ type FiltroState = {
   busca?: string
   propriedade:
     | enums.Propriedade.TODOS
+    | enums.Propriedade.FAVORITO
     | enums.Propriedade.AMIGOS
     | enums.Propriedade.FAMÍLIA
     | enums.Propriedade.TRABALHO

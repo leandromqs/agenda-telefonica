@@ -8,7 +8,7 @@ const BarraLateral = () => {
     <>
       <styles.DivLateral>
         <CardFiltro legenda={enums.Propriedade.TODOS} icon={1} />
-        <CardFiltro legenda={enums.Favoritos.FAVORITO} icon={2} />
+        <CardFiltro legenda={enums.Propriedade.FAVORITO} icon={2} />
         <CardFiltro legenda={enums.Propriedade.FAMÍLIA} icon={3} />
         <CardFiltro legenda={enums.Propriedade.AMIGOS} icon={4} />
         <CardFiltro legenda={enums.Propriedade.TRABALHO} icon={5} />

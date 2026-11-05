@@ -6,7 +6,9 @@ import { alterarBusca } from '../../store/reducers/filtros'
 import type { RootState } from '../../store'
 
 const ListaContatos = () => {
-  const { busca } = useSelector((state: RootState) => state.filtros)
+  const { busca, propriedade } = useSelector(
+    (state: RootState) => state.filtros
+  )
   const { itens } = useSelector((state: RootState) => state.contatos)
 
   const dispatch = useDispatch()
@@ -32,7 +34,7 @@ const ListaContatos = () => {
           value={busca}
           onChange={(evento) => dispatch(alterarBusca(evento.target.value))}
         />
-        {busca}
+        {propriedade}
         <ul>
           {filtrarTarefas().map((item) => (
             <li key={item.id}>
