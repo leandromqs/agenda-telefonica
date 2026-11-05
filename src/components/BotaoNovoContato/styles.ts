@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
-export const BotaoLink = styled.a`
+export const BotaoLink = styled(Link)`
   background-color: ${variaveis.amarelo};
   border: none;
   padding: 8px 16px;
