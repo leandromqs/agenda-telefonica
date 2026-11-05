@@ -20,22 +20,19 @@ const ListaContatos = () => {
       tarefasFiltradas = tarefasFiltradas.filter(
         (item) => item.nome.toLowerCase().search(busca.toLowerCase()) >= 0
       )
+      if (propriedade != enums.Propriedade.TODOS) {
+        return tarefasFiltradas.filter((item) => item.tipo === propriedade)
+      }
     } else if (propriedade) {
       switch (propriedade) {
         case enums.Propriedade.FAVORITO:
           return tarefasFiltradas.filter((item) => item.favorito === true)
         case enums.Propriedade.FAMÍLIA:
-          return tarefasFiltradas.filter(
-            (item) => item.tipo === enums.Propriedade.FAMÍLIA
-          )
+          return tarefasFiltradas.filter((item) => item.tipo === propriedade)
         case enums.Propriedade.AMIGOS:
-          return tarefasFiltradas.filter(
-            (item) => item.tipo === enums.Propriedade.AMIGOS
-          )
+          return tarefasFiltradas.filter((item) => item.tipo === propriedade)
         case enums.Propriedade.TRABALHO:
-          return tarefasFiltradas.filter(
-            (item) => item.tipo === enums.Propriedade.TRABALHO
-          )
+          return tarefasFiltradas.filter((item) => item.tipo === propriedade)
       }
     } else {
       return itens
