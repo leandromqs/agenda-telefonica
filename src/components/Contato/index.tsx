@@ -1,10 +1,11 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Star } from 'lucide-react'
 import * as styles from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { editar, favoritar, remover } from '../../store/reducers/contato'
 import { useState } from 'react'
+import type { RootState } from '../../store'
 
 type ContatoProsp = {
   nome: string
@@ -20,7 +21,11 @@ const Contato = ({ nome, tipo, favorito, numero, email, id }: ContatoProsp) => {
   const [editandoNumero, setEditandoNumero] = useState(numero)
   const [editandoEmail, setEditandoEmail] = useState(email)
   const [estaEditando, setEstaEditando] = useState(false)
-  const [isFavorito, setIsFavorito] = useState(false)
+
+  const isFavorito = useSelector(
+    (state: RootState) =>
+      state.contatos.itens.find((item) => item.id === id)?.favorito
+  )
 
   const cancelarOperacao = () => {
     setEstaEditando(false)
@@ -29,23 +34,18 @@ const Contato = ({ nome, tipo, favorito, numero, email, id }: ContatoProsp) => {
   }
 
   const setFavorito = () => {
-    setIsFavorito(!isFavorito)
     dispatch(favoritar({ nome, tipo, favorito: !favorito, numero, email, id }))
-  }
-
-  const setColor = () => {
-    if (isFavorito) {
-      return 'gold'
-    } else {
-      return 'white'
-    }
   }
 
   return (
     <styles.CardContato>
       <styles.HeadContato>
         <h2>{nome}</h2>
-        <Star fill={setColor()} stroke="none" onClick={setFavorito} />
+        <Star
+          fill={isFavorito ? 'gold' : 'white'}
+          stroke="none"
+          onClick={setFavorito}
+        />
       </styles.HeadContato>
       <styles.CategoriaContato>{tipo}</styles.CategoriaContato>
       <styles.CamposContato>
