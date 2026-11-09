@@ -61,7 +61,7 @@ const contatoSlice = createSlice({
     cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       const contatoExiste = state.itens.find(
         (contato) =>
-          contato.nome.toLowerCase === action.payload.nome.toLocaleLowerCase
+          contato.nome.toLowerCase() === action.payload.nome.toLocaleLowerCase()
       )
 
       if (contatoExiste) {

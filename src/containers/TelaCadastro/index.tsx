@@ -32,6 +32,7 @@ const TelaCadastro = () => {
         <styles.TituloContato>Adiconar novo contato</styles.TituloContato>
         <styles.InfoContato>
           <styles.InputContatoN
+            required
             type="text"
             placeholder="Nome"
             onChange={(e) => {
@@ -39,6 +40,7 @@ const TelaCadastro = () => {
             }}
           />
           <styles.InputContatoN
+            required
             type="text"
             placeholder="Telefone"
             onChange={(e) => {
