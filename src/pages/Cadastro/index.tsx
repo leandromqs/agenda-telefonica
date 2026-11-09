@@ -1,5 +1,7 @@
+import TelaCadastro from '../../containers/TelaCadastro'
+
 const Cadastro = () => {
-  return <h1>Nova tarefa</h1>
+  return <TelaCadastro />
 }
 
 export default Cadastro

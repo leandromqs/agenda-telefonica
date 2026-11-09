@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Inter', sans-serif;
   list-style: none;
  }
+
+ body{
+  background-color: ${variaveis.bg};
+ }
 `
 
 export const ContainerMain = styled.main`

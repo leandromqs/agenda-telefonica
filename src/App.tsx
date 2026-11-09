@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import { GlobalStyle, ContainerMain } from './styles/styles'
+import { GlobalStyle } from './styles/styles'
 import store from './store'
 import Cadastro from './pages/Cadastro'
 import Home from './pages/Home'
@@ -22,9 +22,7 @@ function App() {
     <>
       <GlobalStyle />
       <Provider store={store}>
-        <ContainerMain>
-          <RouterProvider router={rotas} />
-        </ContainerMain>
+        <RouterProvider router={rotas} />
       </Provider>
     </>
   )
