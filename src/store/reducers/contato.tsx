@@ -10,7 +10,7 @@ const initialState: contatoState = {
   itens: [
     {
       nome: 'Leandro',
-      tipo: enums.Propriedade.AMIGOS,
+      tipo: enums.Propriedade.TRABALHO,
       favorito: false,
       numero: '(00) 00000-0000',
       email: 'Leandro@gmail.com',
@@ -70,6 +70,8 @@ const contatoSlice = createSlice({
         alert('Preencha o nome corretamente.')
       } else if (action.payload.numero.length < 10) {
         alert('Preencha o número corretamente.')
+      } else if (action.payload.tipo === 'Todos') {
+        alert('Selecione o tipo de contato.')
       } else {
         const ultimoContato = state.itens[state.itens.length - 1]
         const novoContato = {

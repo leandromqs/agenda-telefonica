@@ -56,26 +56,38 @@ const TelaCadastro = () => {
               setEmailContato(e.target.value)
             }}
           />
-          <styles.DivRadius
-            onChange={(e) => {
-              setTipoContato(e.target.value as enums.Propriedade)
-            }}
-          >
-            <input type="radio" name="Tipo" value={enums.Propriedade.FAMÍLIA} />{' '}
-            <styles.LabelContato htmlFor="Familia">
+          <styles.DivRadius>
+            <input
+              type="radio"
+              name="Tipo"
+              value={enums.Propriedade.FAMÍLIA}
+              onChange={(e) => {
+                setTipoContato(e.target.value as enums.Propriedade)
+              }}
+            />{' '}
+            <styles.LabelContato htmlFor={enums.Propriedade.FAMÍLIA}>
               {enums.Propriedade.FAMÍLIA}
-            </styles.LabelContato>
-            <input type="radio" name="Tipo" value={enums.Propriedade.AMIGOS} />{' '}
-            <styles.LabelContato htmlFor="">
-              {enums.Propriedade.AMIGOS}
             </styles.LabelContato>
             <input
               type="radio"
               name="Tipo"
-              defaultChecked
+              value={enums.Propriedade.AMIGOS}
+              onChange={(e) => {
+                setTipoContato(e.target.value as enums.Propriedade)
+              }}
+            />{' '}
+            <styles.LabelContato htmlFor={enums.Propriedade.AMIGOS}>
+              {enums.Propriedade.AMIGOS}
+            </styles.LabelContato>
+            <input
+              onChange={(e) => {
+                setTipoContato(e.target.value as enums.Propriedade)
+              }}
+              type="radio"
+              name="Tipo"
               value={enums.Propriedade.TRABALHO}
             />{' '}
-            <styles.LabelContato htmlFor="">
+            <styles.LabelContato htmlFor={enums.Propriedade.TRABALHO}>
               {enums.Propriedade.TRABALHO}
             </styles.LabelContato>
           </styles.DivRadius>
