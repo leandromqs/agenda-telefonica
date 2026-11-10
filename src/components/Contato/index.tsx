@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
-
 import { Star } from 'lucide-react'
+
+import { InputContato } from '../../components/Contato/styles'
 import * as styles from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { editar, favoritar, remover } from '../../store/reducers/contato'
@@ -51,7 +52,8 @@ const Contato = ({ nome, tipo, favorito, numero, email, id }: ContatoProsp) => {
       <styles.CamposContato>
         {estaEditando ? (
           <>
-            <styles.InputContato
+            <InputContato
+              mask={[{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }]}
               type="text"
               placeholder={editandoNumero}
               value={editandoNumero}

@@ -3,5 +3,5 @@ export enum Propriedade {
   FAVORITO = 'Favoritos',
   FAMÍLIA = 'Família',
   AMIGOS = 'Amigos',
-  TRABALHO = 'Trabalho'
+  TRABALHO = 'Colega'
 }

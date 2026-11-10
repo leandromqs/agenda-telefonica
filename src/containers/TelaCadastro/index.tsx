@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { IMaskInput } from 'react-imask'
 import { InputContato } from '../../components/Contato/styles'
 import { cadastrar } from '../../store/reducers/contato'
 import * as styles from './styles'
@@ -21,7 +20,7 @@ const TelaCadastro = () => {
         return enums.Propriedade.FAMÍLIA
       case 'Amigos':
         return enums.Propriedade.AMIGOS
-      case 'Trabalho':
+      case 'Colega':
         return enums.Propriedade.TRABALHO
       default:
         return enums.Propriedade.TODOS
@@ -63,19 +62,22 @@ const TelaCadastro = () => {
             }}
           >
             <input type="radio" name="Tipo" value={enums.Propriedade.FAMÍLIA} />{' '}
-            <styles.LabelContato htmlFor="Familia">Família</styles.LabelContato>
+            <styles.LabelContato htmlFor="Familia">
+              {enums.Propriedade.FAMÍLIA}
+            </styles.LabelContato>
+            <input type="radio" name="Tipo" value={enums.Propriedade.AMIGOS} />{' '}
+            <styles.LabelContato htmlFor="">
+              {enums.Propriedade.AMIGOS}
+            </styles.LabelContato>
             <input
               type="radio"
               name="Tipo"
-              value={enums.Propriedade.AMIGOS}
-            />{' '}
-            <styles.LabelContato htmlFor="">Amigos</styles.LabelContato>
-            <input
-              type="radio"
-              name="Tipo"
+              defaultChecked
               value={enums.Propriedade.TRABALHO}
             />{' '}
-            <styles.LabelContato htmlFor="">Trabalho</styles.LabelContato>
+            <styles.LabelContato htmlFor="">
+              {enums.Propriedade.TRABALHO}
+            </styles.LabelContato>
           </styles.DivRadius>
           <styles.BotaoCadastrar
             onClick={() => {

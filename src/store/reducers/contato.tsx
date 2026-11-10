@@ -12,24 +12,24 @@ const initialState: contatoState = {
       nome: 'Leandro',
       tipo: enums.Propriedade.AMIGOS,
       favorito: false,
-      numero: '88888888',
-      email: 'adasdas@gmail.com',
+      numero: '(00) 00000-0000',
+      email: 'Leandro@gmail.com',
       id: 1
     },
     {
       nome: 'Kelvin',
       tipo: enums.Propriedade.FAMÍLIA,
       favorito: false,
-      numero: '88888888',
-      email: 'adasdas@gmail.com',
+      numero: '(00) 00000-0000',
+      email: 'Kelvin@gmail.com',
       id: 2
     },
     {
       nome: 'Tutu',
       tipo: enums.Propriedade.AMIGOS,
       favorito: false,
-      numero: '88888888',
-      email: 'adasdas@gmail.com',
+      numero: '(00) 00000-0000',
+      email: 'Tutu@gmail.com',
       id: 3
     }
   ]
@@ -66,8 +66,10 @@ const contatoSlice = createSlice({
 
       if (contatoExiste) {
         alert('Já existe um contato com esse nome.')
-      } else if (action.payload.nome || action.payload.numero === '') {
-        alert('Preenca')
+      } else if (action.payload.nome.length <= 2) {
+        alert('Preencha o nome corretamente.')
+      } else if (action.payload.numero.length < 10) {
+        alert('Preencha o número corretamente.')
       } else {
         const ultimoContato = state.itens[state.itens.length - 1]
         const novoContato = {
@@ -75,6 +77,7 @@ const contatoSlice = createSlice({
           id: ultimoContato ? ultimoContato.id + 1 : 1
         }
         state.itens.push(novoContato)
+        alert('Contato adicionado com sucesso!')
       }
     }
   }
