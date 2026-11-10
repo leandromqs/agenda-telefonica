@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 import { Botao } from '../../styles/styles'
+import { IMaskInput } from 'react-imask'
 
 export const CardContato = styled.div`
   background-color: ${variaveis.bgLateral};
@@ -54,7 +55,7 @@ export const BotaoSalvar = styled(Botao)`
   color: ${variaveis.laranja2};
 `
 
-export const InputContato = styled.input`
+export const InputContato = styled(IMaskInput)`
   display: block;
   padding: 8px;
   background-color: transparent;
@@ -62,6 +63,7 @@ export const InputContato = styled.input`
   border: none;
   border-bottom: 1px solid ${variaveis.stroke};
   color: ${variaveis.branco};
+  width: 400px;
 
   &:focus {
     outline: none;

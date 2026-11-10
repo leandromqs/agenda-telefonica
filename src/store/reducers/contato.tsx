@@ -66,14 +66,14 @@ const contatoSlice = createSlice({
 
       if (contatoExiste) {
         alert('Já existe um contato com esse nome.')
+      } else if (action.payload.nome || action.payload.numero === '') {
+        alert('Preenca')
       } else {
         const ultimoContato = state.itens[state.itens.length - 1]
-
         const novoContato = {
           ...action.payload,
           id: ultimoContato ? ultimoContato.id + 1 : 1
         }
-
         state.itens.push(novoContato)
       }
     }

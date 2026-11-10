@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { IMaskInput } from 'react-imask'
 import variaveis from './variaveis'
 
 export const GlobalStyle = createGlobalStyle`
@@ -28,4 +29,19 @@ export const Botao = styled.button`
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+`
+
+export const InputNumero = styled(IMaskInput)`
+  display: block;
+  padding: 8px;
+  background-color: transparent;
+  margin-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid ${variaveis.stroke};
+  color: ${variaveis.branco};
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${variaveis.branco};
+  }
 `

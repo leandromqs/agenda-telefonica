@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
+import { IMaskInput } from 'react-imask'
+import { InputContato } from '../../components/Contato/styles'
 import { cadastrar } from '../../store/reducers/contato'
 import * as styles from './styles'
 import * as enums from '../../utils/enums/Contato'
@@ -39,7 +41,8 @@ const TelaCadastro = () => {
               setNomeContato(e.target.value)
             }}
           />
-          <styles.InputContatoN
+          <InputContato
+            mask={[{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }]}
             required
             type="text"
             placeholder="Telefone"
